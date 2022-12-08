@@ -291,7 +291,7 @@ export async function resolveX25519Encrypters(dids: string[], resolver: Resolvab
     }
     if (didDocument.controller) {
       let controllers = Array.isArray(didDocument.controller) ? didDocument.controller : [didDocument.controller]
-      controllers = controllers.filter((c) => !resolved.includes(c))
+      controllers = controllers.filter((c) => resolved.indexOf(c) < 0)
       const encrypterPromises = controllers.map((did) =>
         encryptersForDID(did, resolved).catch(() => {
           return []
