@@ -31,7 +31,10 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint --ignore-pattern \"src/**/*.test.[jt]s\" \"src/**/*.[jt]s\"",
     "prepublishOnly": "yarn test:ci && yarn format && yarn lint",
-    "release": "semantic-release --debug"
+    "release": "semantic-release --debug",
+    "prepare": "yarn build",
+    "prepack": "yarn build",
+    "postinstall": "yarn build"
   },
   "author": "Pelle Braendgaard",
   "contributors": [
@@ -80,7 +83,6 @@
     "jsontokens": "3.1.1",
     "jsonwebtoken": "^8.5.1",
     "jwk-to-pem": "^2.0.5",
-    "microbundle": "0.15.1",
     "mockdate": "3.0.5",
     "prettier": "2.7.1",
     "regenerator-runtime": "0.13.9",
@@ -101,6 +103,7 @@
     "did-resolver": "^4.0.0",
     "elliptic": "^6.5.4",
     "js-sha3": "^0.8.0",
+    "microbundle": "0.15.1",
     "multiformats": "^9.6.5",
     "uint8arrays": "^3.0.0"
   },
